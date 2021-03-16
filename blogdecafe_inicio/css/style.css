@@ -3,6 +3,7 @@
     --fuenteParrafos: 'Open Sans', sans-serif;
     
     --primario: #784d3c;
+    --gris: #e1e1e1;
     --blanco: #fff;
     --negro: #000;
 }
@@ -16,8 +17,8 @@ html{
 }
 body{
     font-family: var(--fuenteParrafos);
-    font-size: 1.2rem;
-    font-weight: 2; /*en los blogs se suele usar un interlineado mas grande, ya que es una forma mas facil de leer el contenido*/
+    font-size: 1.6rem;
+    line-height: 2; /*en los blogs se suele usar un interlineado mas grande, ya que es una forma mas facil de leer el contenido*/
 }
 
 /******* GLOBALES *******/ /*usaremos REM en este proyecto */
@@ -52,11 +53,101 @@ img {
 
 /******* UTILIDADES *******/
 .no-margin {/*eliminar margin a elementos segun requiramos*/
-    margin: 0;
+    margin: 0;/*se usa por lo general en h's ya que estos agregan margin*/
 }
 .no-padding { /*idem pero con padding ya que hay elementos que lo agregan de forma auto*/
     padding: 0;
 }
 .centrar-texto {
     text-align: center;
+}
+
+/******* HEADER *******/
+.header {
+    background-image: url(../img/banner.jpg);
+    height: 60rem; /*defino el alto asi aparece la imagen*/
+    background-size: cover; /*que la img tome todo el espacio disponible*/
+    background-repeat: no-repeat; /*que no se repita la imagen en si misma*/
+    background-position: center center; /* CENTER X - CENTER Y */
+    /*centra siempre la imagen de fondo para 
+    diferentes tamaños (fluye hacia el centro)*/
+}
+.header__texto {
+    text-align: center;
+    color: var(--blanco);
+    margin-top: 5rem; /*separacion de arriba*/
+}
+@media (min-width: 768px) {
+    .header__texto {
+        margin-top: 15rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .barra { /*usamos FLEXBOX porqque estamos acomodando elements en el contenedor*/
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /*alinea vertical*/
+    }
+}
+.logo {
+    color: var(--blanco);
+}
+.logo__nombre {
+    font-weight: normal;
+}
+.logo__bold {
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .navegacion{
+        display: flex;
+        gap: 2rem;
+    }
+}
+.navegacion__enlace {
+    display: block; /*elementos uno debjo del otro (solo celus)*/
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--blanco);
+}
+
+/******* CONTENIDO PRINCIPAL *******/
+@media (min-width: 768px) {
+    .contenido-principal {
+        display: grid; 
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+}
+
+.entrada {
+    border-bottom: 1px solid var(--gris); /*border solo en la direccion inferior*/
+    margin-bottom: 2rem; /*separa entradas asi vemos el border*/
+}
+.entrada:last-of-type{ /*que le quite el border a la ultima entrada ya que no es nesario*/
+    border: none;
+    margin-bottom: 0;
+}
+.boton {
+    display: block; /*asi en celulares toma todo el espacio disponible*/
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem; /*asi no se tapa el border*/
+}
+@media (min-width: 768px) {
+    .boton{
+        display: inline-block; /*lo contrario a block, que no ocupe todo su espacio*/
+        /*no le podes dar margin o width a los inline simples, a inlgineblock si*/
+
+    }
+}
+.boton--primario {
+    background-color: var(--negro);
 }
