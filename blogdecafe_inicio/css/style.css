@@ -1,0 +1,62 @@
+:root{
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+    
+    --primario: #784d3c;
+    --blanco: #fff;
+    --negro: #000;
+}
+
+html{
+    box-sizing: border-box; /*asi el padding no afecta el ancho de nuestros elementos*/
+    font-size: 62.5%; /* 1rem = 10px */
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body{
+    font-family: var(--fuenteParrafos);
+    font-size: 1.2rem;
+    font-weight: 2; /*en los blogs se suele usar un interlineado mas grande, ya que es una forma mas facil de leer el contenido*/
+}
+
+/******* GLOBALES *******/ /*usaremos REM en este proyecto */
+/*aqui se coloca lo que se utiliza mas de 1 vez, contenido mas "global" */
+.contenedor{
+    max-width: 120rem;
+    width: 90%;
+    margin: 0 auto; /*para centrar contenido en pantalla ya que no usamos un flex*/
+}
+
+a {
+    text-decoration: none; /*le quito el subrayado a los links*/
+}
+h1, h2, h3, h4{
+    font-family: var(--fuenteHeading);
+}
+h1 {
+    font-size: 4.8rem;
+}
+h2 {
+    font-size: 4rem;
+}
+h3 {
+    font-size: 3.2rem;
+}
+h4 {
+    font-size: 2.8rem;
+}
+img {
+    max-width: 100%;
+}
+
+/******* UTILIDADES *******/
+.no-margin {/*eliminar margin a elementos segun requiramos*/
+    margin: 0;
+}
+.no-padding { /*idem pero con padding ya que hay elementos que lo agregan de forma auto*/
+    padding: 0;
+}
+.centrar-texto {
+    text-align: center;
+}
