@@ -65,8 +65,15 @@ img {
 }
 
 /******* HEADER *******/
-.header {
+.webp .header{/*si soporta webp, usamos webp*/
+    background-image: url(../img/banner.webp); 
+}
+.no-webp .head{/*si no, jpg*/
     background-image: url(../img/banner.jpg);
+}
+/*todo esto es gracias a mordernizr.*/
+
+.header {
     height: 60rem; /*defino el alto asi aparece la imagen*/
     background-size: cover; /*que la img tome todo el espacio disponible*/
     background-repeat: no-repeat; /*que no se repita la imagen en si misma*/
@@ -112,7 +119,7 @@ img {
     .navegacion{
         display: flex;
         justify-content: space-between;
-        flex: 0 0 calc(33.3% - 1rem);
+        flex-basis: calc(33.3% - 1rem);/*hacer espacio en objetos flexbox*/
     }
 }
 .navegacion__enlace {
@@ -149,6 +156,7 @@ img {
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 2rem; /*asi no se tapa el border*/
+    border: none;
 }
 @media (min-width: 768px) {
     .boton{
@@ -156,6 +164,9 @@ img {
         /*no le podes dar margin o width a los inline simples, a inlgineblock si*/
 
     }
+}
+.boton:hover{
+    cursor: pointer;
 }
 .boton--primario {
     background-color: var(--negro);
@@ -193,4 +204,73 @@ img {
     background-color: var(--negro); 
     padding-bottom: 3rem;/*forma al footer, botom porque antes estaba con top*/
     margin-top: 4rem;
+}
+
+/******* NOSOTROS *******/
+@media (min-width: 768px) {
+    /*flex-basis equivale al WIDTH EN FLEXBOX*/
+    .sobre-nosotros {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+}
+
+/******* CURSOS *******/
+.curso {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+.curso:last-of-type {
+    border: none;
+}
+@media (min-width: 768px) {
+    .curso{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+}
+.curso__label {
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+}
+.curso__info {
+    font-weight: normal;
+}
+.curso__label,
+.curso__info {
+    font-size: 2rem;
+}
+
+/******* CONTACTO *******/
+.contacto__background{
+    background-image: url(../img/contacto.jpg);
+    height: 40rem;
+    background-size: cover;  
+    background-repeat: no-repeat;  
+}
+
+/******* FORMULARIO *******/
+.formulario {
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto; /*50px hacia arriba*/
+    width: 95%;
+    padding: 5rem; /*en todas las direcc*/
+}
+.campo{
+    display: flex;
+    margin-bottom: 2rem; /*separacion entre campos*/
+}
+.campo__label {
+    flex: 0 0 9rem;/*deja el tamanio fijo en 9 rem*/
+    text-align: right;
+    padding-right: 2rem; /*separacion entre texto y campo*/
+}
+.campo__field {
+    flex: 1; /*extiene los campos todo el esapcio disponible gracias a flex 0 y flex 1*/
+    border: 1px solid var(--gris);  
+}
+.campo__field--textarea {
+    height: 20rem;
 }
